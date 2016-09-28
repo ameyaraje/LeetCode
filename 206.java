@@ -22,3 +22,26 @@
     }
 }
 
+/*
+    Iteerative Solution #2
+    Move the head ahead so that it reaches the end of the original list
+*/
+    public class Solution {
+    public ListNode reverseList(ListNode head) {
+        if (head == null || head.next == null)
+            return head;
+            
+        ListNode temp;
+        ListNode prev = null;
+        
+        while (head != null) {
+            temp = head.next;
+            head.next = prev;
+            prev = head;
+            head = temp;
+        }
+        
+        return prev;
+    }
+}
+
