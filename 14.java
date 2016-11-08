@@ -6,7 +6,7 @@
 public class Solution {
     public String longestCommonPrefix(String[] strs) {
         if (strs == null || strs.length == 0)
-            return " ";
+            return "";
         
         if (strs.length == 1) 
             return strs[0];
@@ -18,12 +18,12 @@ public class Solution {
                 leastLen = str.length();
         }
         
-        for (int i = 0; i <= leastLen; i++) {
+        for (int i = 0; i < leastLen; i++) {
             for (int j = 0; j < strs.length-1; j++) {
                 String str1 = strs[j];
                 String str2 = strs[j+1];
                 if (str1.charAt(i) == str2.charAt(i)) {
-                    return str1.substring(0, leastLen);
+                    return str1.substring(0, i);
                 }
             }
         }
