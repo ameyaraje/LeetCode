@@ -1,20 +1,20 @@
-/*
-	Took help from the internet. Couldnt think of doing this. 
-*/
-	public class Solution {
+public class Solution {
     public int strStr(String haystack, String needle) {
-        int l1 = haystack.length(), l2 = needle.length();
-        if (l1 < l2) {
+        if (haystack == null || needle == null)
             return -1;
-        } else if (l2 == 0) {
-            return 0;
-        }
-        int threshold = l1 - l2;
-        for (int i = 0; i <= threshold; ++i) {
-            if (haystack.substring(i,i+l2).equals(needle)) {
+        
+        int len1 = haystack.length();
+        int len2 = needle.length();
+        int diff = len1-len2;
+        
+        for (int i = 0; i <= diff; i++) {
+            int count = 0;
+            while (count < len2 && haystack.charAt(i+count) == needle.charAt(count))
+                count++;
+            if (count == len2)
                 return i;
-            }
         }
+        
         return -1;
     }
 }
